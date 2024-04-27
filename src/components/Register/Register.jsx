@@ -1,5 +1,5 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,10 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+
+    useEffect(()=>{
+        document.title='Register'
+    },[])
 
 const {createUser,updateUserProfile}=useContext(AuthContext)
     const[show,setShow]=useState(false)
