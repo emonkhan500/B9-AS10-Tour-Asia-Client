@@ -50,6 +50,15 @@ const handleLogin =e=>{
 
     const password = e.target.password.value;
     console.log(email, password);
+    Login(email, password)
+      .then(() => {
+        toast.success('Login Successful!!')
+		// navigate
+		navigate(location?.state ? location.state :'/')
+      })
+      .catch(() => {
+		toast.error("Wrong Email or Password !!");
+      });
 }
 
 
