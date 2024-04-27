@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { AuthContext } from '../provider/AuthProvider';
 
 const Nav = () => {
+const {user,logOut}=useContext(AuthContext)
+console.log(user)
+
+const handleSignOut=()=>{
+  logOut()
+  .then()
+  .catch(error=>{
+    console.error(error)
+  })
+}
 
     const links=<>
 <li className='text-xl' ><NavLink  to='/'>Home</NavLink></li>
@@ -37,17 +48,22 @@ const Nav = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  {/* <div className="w-10 mr-2 rounded-full">
+  <div className="w-10 mr-2 rounded-full">
           <img title={user?.displayName || 'No User'} className="rounded-2xl" alt="" src={user?.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} />
-        </div> */}
-  {/* <div className="w-10 rounded-full">
-          <p>{user?.displayName || 'No User'}</p>
-        </div> */}
+        </div>
+  
         
           
-<Link > <button className="btn text-fuchsia-500">Sign Out</button></Link>
-
-<Link to='/login' > <button className="btn text-fuchsia-500">Login</button></Link>
+        {
+          user?<>
+          
+<Link onClick={handleSignOut}> <button className="btn text-fuchsia-500">Sign Out</button></Link>
+</> :
+<div>
+<Link to='/login'> <button className="btn text-fuchsia-500">Login</button></Link>
+<Link to='/register'> <button className="btn text-fuchsia-500">Register</button></Link>
+</div>
+        }
         
   </div>
 </div>

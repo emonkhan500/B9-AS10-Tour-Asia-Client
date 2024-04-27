@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-const {createUser}=useContext(AuthContext)
+const {createUser,updateUserProfile}=useContext(AuthContext)
     const[show,setShow]=useState(false)
     const [registerError,setRegisterError]=useState('')
     const notify = () => toast("Registered Successful !!");
@@ -39,14 +39,19 @@ setRegisterError('Password must have One Small letter!!')
 return
 }
 createUser(email,password)
-	   .then(result=>{
-	console.log(result)	   
-    notify()
-    navigate('/')
-    })
-	   .catch(error=>{
-	 console.log(error)
-	   })
+.then(result=>{
+  console.log(result)
+  notify()
+  updateUserProfile(name,photo)
+ // navigate
+ .then(()=>{
+     navigate('/')
+ })
+ 
+})
+.catch(error=>{
+console.log(error)
+})
 
 
 }
