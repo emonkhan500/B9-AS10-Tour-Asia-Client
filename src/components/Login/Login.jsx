@@ -1,8 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import {  toast } from "react-toastify";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
 
+  const { Login,googleLogin ,githubLogin} = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate=useNavigate()
+  console.log('locatin',location)
+
+// githubLogin
+
+const handleGithub=()=>{
+  githubLogin()
+  .then(()=>{
+    toast.success('Login Successful!!')
+    // navigate
+  navigate(location?.state ? location.state :'/')
+  })
+  .catch(error=>{
+    console.error(error)
+  })
+}
+
+// google login
+const handleGoogle=()=>{
+  googleLogin()
+  .then(()=>{
+    toast.success('Login Successful!!')
+    // navigate
+  navigate(location?.state ? location.state :'/')
+    
+  })
+  .catch(error=>{
+    console.error(error)
+  })
+}
 
 
 
@@ -69,7 +104,7 @@ const handleLogin =e=>{
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button  aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button onClick={handleGoogle}  aria-label="Log in with Google" className="p-3 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -79,7 +114,7 @@ const handleLogin =e=>{
             </svg>
           </button>
           
-          <button  aria-label="Log in with GitHub" className="p-3 rounded-sm">
+          <button onClick={handleGithub} aria-label="Log in with GitHub" className="p-3 rounded-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
