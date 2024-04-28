@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Coustomers from "../Coustomer/Coustomers";
 
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     return (
         <div className="mt-10 container mx-auto">
            <Banner></Banner>
+           <Coustomers></Coustomers>
         </div>
     );
 };
