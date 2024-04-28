@@ -20,9 +20,9 @@ const handleToggle=e=>{
     setTheme('light')
   }
 }
-console.log(theme)
+// console.log(theme)
 const {user,logOut}=useContext(AuthContext)
-console.log(user)
+// console.log(user)
 
 const handleSignOut=()=>{
   logOut()

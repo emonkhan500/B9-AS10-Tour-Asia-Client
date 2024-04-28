@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+
 
 const AddSpot = () => {
     useEffect(()=>{
         document.title='Add Tourist Spot'
     },[])
 
-
+const{user}=useContext(AuthContext)
+const navigate=useNavigate()
 
     const handleAddSpot = (e) => {
         e.preventDefault();
@@ -23,7 +28,27 @@ const AddSpot = () => {
         const place = { image, spot,country,location, description,cost, season, travel, visitor ,email,name};
         console.log(place);
     
-        
+        // send data to server
+        fetch('http://localhost:5000/spot',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(place)
+        })
+        .then(res =>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                  title: 'Success!',
+                  text: 'spot added successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Cool'
+                })
+               navigate('/')
+              }
+        })
         
       };
 
@@ -71,11 +96,11 @@ const AddSpot = () => {
         <div><h2 className="text-3xl font-extrabold text-center mb-8 text-cyan-300">User Info</h2></div>
         <div className="mb-8">
           <label className="block mb-2">User Email</label>
-          <input type="text" name="email" placeholder="email" className="input input-bordered w-full" />
+          <input type="text" name="email" value={user.email} className="input input-bordered w-full" final />
         </div>
         <div className="mb-8">
           <label className="block mb-2">User Name</label>
-          <input type="text" name="name" placeholder="name" className="input input-bordered w-full" />
+          <input type="text" name="name" value={user.displayName} className="input input-bordered w-full"  />
         </div>
         <button type="submit" className="btn btn-block btn-success">Add Spot</button>
       </form>
