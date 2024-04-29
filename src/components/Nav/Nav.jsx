@@ -3,6 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { AuthContext } from '../provider/AuthProvider';
 
+
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
+
 const Nav = () => {
 const [theme,setTheme]=useState('light')
 
@@ -65,8 +69,8 @@ const handleSignOut=()=>{
     </ul>
   </div>
   <div className="navbar-end">
-  <div className="w-10 mr-2 rounded-full">
-          <img title={user?.displayName || 'No User'} className="rounded-2xl" alt="" src={user?.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} />
+  <div data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName || 'No User'} className="w-10 mr-2 rounded-full">
+          <img  className="rounded-2xl" alt="" src={user?.photoURL || 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'} />
         </div>
   
         
@@ -89,6 +93,7 @@ const handleSignOut=()=>{
   <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 </label>
 </div>
+<Tooltip id="my-tooltip" />
     </div>
     );
 };

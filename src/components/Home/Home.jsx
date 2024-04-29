@@ -2,13 +2,20 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Coustomers from "../Coustomer/Coustomers";
 import Extra2 from "../Extra2/Extra2";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import HomeSpotShow from "../HomeSpot/HomeSpotShow";
+import { AuthContext } from "../provider/AuthProvider";
+import Lottie from "lottie-react";
+import reactLottie from '../../../public/lottie.json'
 
 
 const Home = () => {
     const lodedSpots= useLoaderData()
+    const {loading}=useContext(AuthContext)
     const [spots,setSpots]=useState(lodedSpots.slice(0, 6))
+    if(loading){
+        return <Lottie animationData={reactLottie} loop={true} />;
+    }
     return (
         <div className="mt-10 container mx-auto">
            <Banner></Banner>
