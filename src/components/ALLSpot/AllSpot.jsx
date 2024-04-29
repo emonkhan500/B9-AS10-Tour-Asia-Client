@@ -24,7 +24,7 @@ const AllSpot = () => {
 
     return (
         <div className='mt-12'>   
-            <h1 className="text-4xl font-bold text-gray-500 ">All Tourist Spot in Asia</h1>
+            <h1 className="text-4xl mb-6 font-bold text-gray-500 ">All Tourist Spot in Asia</h1>
             <div className='text-center'><details className="dropdown ">
                <summary className="m-1 px-6 py-3 rounded-lg bg-[#23BE0A] hover:bg-[#23BE0Aac] active:scale-95 text-white text-lg font-semibold">Sort By</summary>
                <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
