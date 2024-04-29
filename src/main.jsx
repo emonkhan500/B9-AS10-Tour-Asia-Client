@@ -19,6 +19,8 @@ import Register from './components/Register/Register.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './components/provider/AuthProvider.jsx';
 import PrivateRoute from '../PrivateRoute/PrivateRoute.jsx';
+import UpdateSpot from './components/UpdateSpot/UpdateSpot.jsx';
+import ShowDetails from './components/ShowDetails/ShowDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allspot',
-        element:<AllSpot></AllSpot>,
+        element:<PrivateRoute><AllSpot></AllSpot></PrivateRoute>,
         loader:()=>fetch('http://localhost:5000/spot')
       },
       {
@@ -53,7 +55,17 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
-      }
+      },
+    {
+      path:'/update/:id',
+      element:<UpdateSpot></UpdateSpot>,
+      loader:({params})=>fetch(`http://localhost:5000/spot/${params.id}`)
+    },
+    {
+      path:'/spotDetails/:id',
+      element:<PrivateRoute><ShowDetails></ShowDetails></PrivateRoute>,
+      loader:()=>fetch('http://localhost:5000/spot')
+    }
     ]
   },
 ]);

@@ -34,6 +34,7 @@ useEffect(()=>{
 					
 				</tr>
 			</thead>
+      
       </table>
          {
           mySpot.map(spot=><ShowMyList spots={spot}></ShowMyList>)
