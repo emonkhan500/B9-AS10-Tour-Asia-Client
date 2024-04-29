@@ -14,7 +14,7 @@ const AllSpotShow = ({spots}) => {
           <p className="text-lg">Country: <span className="font-bold text-green-500 text-xl">{country}</span></p>
         </div>
         <div className="flex mt-3">
-          <p className="text-lg"><span className="bg-slate-200 p-1 rounded-lg">Cost:</span><span className="font-bold text-green-500 text-xl">{cost } </span></p> <p className="text-2xl text-red-600">|</p>
+          <p className="text-lg bg-slate-200 p-1 rounded-lg"><span className="">Cost:</span><span className="font-bold text-green-500 text-xl">{cost } </span> USD</p> <p className="text-2xl text-red-600">|</p>
           <p className="text-lg "><span className="bg-slate-200 p-1 rounded-lg">Time:</span> <span className="text-sky-600">{travel} </span></p>
         </div>
         <div className="flex items-center mt-3 ">
