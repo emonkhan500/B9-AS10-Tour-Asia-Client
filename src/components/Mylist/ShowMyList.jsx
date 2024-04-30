@@ -20,7 +20,7 @@
 
 //   }).then((result) => {
 // 	if (result.isConfirmed) {
-// 	   fetch(`http://localhost:5000/spot/${_id}`,{
+// 	   fetch(`https://b9-assignment10-server-ten.vercel.app/spot/${_id}`,{
 // 		  method:'DELETE'
 // 	   })
 // 		.then((res) => res.json())

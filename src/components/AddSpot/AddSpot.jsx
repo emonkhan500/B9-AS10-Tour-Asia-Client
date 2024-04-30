@@ -29,7 +29,7 @@ const navigate=useNavigate()
         console.log(place);
     
         // send data to server
-        fetch('http://localhost:5000/spot',{
+        fetch('https://b9-assignment10-server-ten.vercel.app/spot',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

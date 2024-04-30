@@ -13,7 +13,7 @@ const MyList = () => {
 
 const{user}=useContext(AuthContext)
 useEffect(()=>{
-  fetch(`http://localhost:5000/mylist/${user?.email}`)
+  fetch(`https://b9-assignment10-server-ten.vercel.app/mylist/${user?.email}`)
   .then(res=>res.json())
   .then(data=>{
     setMySpot(data)
@@ -36,7 +36,7 @@ const handleDelete = _id =>{
   
     }).then((result) => {
     if (result.isConfirmed) {
-       fetch(`http://localhost:5000/spot/${_id}`,{
+       fetch(`https://b9-assignment10-server-ten.vercel.app/spot/${_id}`,{
         method:'DELETE'
        })
       .then((res) => res.json())

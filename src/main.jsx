@@ -33,14 +33,14 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-         loader:()=>fetch('http://localhost:5000/spot'),
-        //  loader:()=>fetch('http://localhost:5000/countries')
+         loader:()=>fetch('https://b9-assignment10-server-ten.vercel.app/spot'),
+        //  loader:()=>fetch('https://b9-assignment10-server-ten.vercel.app/countries')
 
       },
       {
         path:'/allspot',
         element:<PrivateRoute><AllSpot></AllSpot></PrivateRoute>,
-        loader:()=>fetch('http://localhost:5000/spot')
+        loader:()=>fetch('https://b9-assignment10-server-ten.vercel.app/spot')
       },
       {
         path:'/addspot',
@@ -63,17 +63,17 @@ const router = createBrowserRouter([
     {
       path:'/update/:id',
       element:<UpdateSpot></UpdateSpot>,
-      loader:({params})=>fetch(`http://localhost:5000/spot/${params.id}`)
+      loader:({params})=>fetch(`https://b9-assignment10-server-ten.vercel.app/spot/${params.id}`)
     },
     {
       path:'/spotDetails/:id',
       element:<PrivateRoute><ShowDetails></ShowDetails></PrivateRoute>,
-      loader:()=>fetch('http://localhost:5000/spot')
+      loader:()=>fetch('https://b9-assignment10-server-ten.vercel.app/spot')
     },
     {
       path:'/countries/:country',
       element:<CountrySpot></CountrySpot>,
-      loader:({params})=>fetch(`http://localhost:5000/countries/${params.country}`)
+      loader:({params})=>fetch(`https://b9-assignment10-server-ten.vercel.app/countries/${params.country}`)
     }
     ]
   },

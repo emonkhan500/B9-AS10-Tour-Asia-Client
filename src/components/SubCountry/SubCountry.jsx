@@ -11,7 +11,7 @@ const SubCountry = () => {
 const[countries,setCountries]=useState([])
 
 useEffect(()=>{
-    fetch('http://localhost:5000/countries')
+    fetch('https://b9-assignment10-server-ten.vercel.app/countries')
     .then(res=>res.json())
     .then(data =>setCountries(data))
 },[])
