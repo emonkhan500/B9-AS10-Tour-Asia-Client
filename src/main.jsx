@@ -21,6 +21,8 @@ import AuthProvider from './components/provider/AuthProvider.jsx';
 import PrivateRoute from '../PrivateRoute/PrivateRoute.jsx';
 import UpdateSpot from './components/UpdateSpot/UpdateSpot.jsx';
 import ShowDetails from './components/ShowDetails/ShowDetails.jsx';
+import SubCountry from './components/SubCountry/SubCountry.jsx';
+import CountrySpot from './components/CountrySpot/CountrySpot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,9 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
-         loader:()=>fetch('http://localhost:5000/spot')
+         loader:()=>fetch('http://localhost:5000/spot'),
+        //  loader:()=>fetch('http://localhost:5000/countries')
+
       },
       {
         path:'/allspot',
@@ -45,7 +49,7 @@ const router = createBrowserRouter([
       {
         path:'/mylist',
         element:<PrivateRoute><MyList></MyList></PrivateRoute>,
-        // loader:()=>fetch('http://localhost:5000/spot')
+        
       },
       
       {
@@ -65,6 +69,11 @@ const router = createBrowserRouter([
       path:'/spotDetails/:id',
       element:<PrivateRoute><ShowDetails></ShowDetails></PrivateRoute>,
       loader:()=>fetch('http://localhost:5000/spot')
+    },
+    {
+      path:'/countries/:country',
+      element:<CountrySpot></CountrySpot>,
+      loader:({params})=>fetch(`http://localhost:5000/countries/${params.country}`)
     }
     ]
   },

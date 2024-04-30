@@ -7,10 +7,13 @@ import HomeSpotShow from "../HomeSpot/HomeSpotShow";
 import { AuthContext } from "../provider/AuthProvider";
 import Lottie from "lottie-react";
 import reactLottie from '../../../public/lottie.json'
+import SubCountry from "../SubCountry/SubCountry";
 
 
 const Home = () => {
     const lodedSpots= useLoaderData()
+    // const countries=useLoaderData()
+    
     const {loading}=useContext(AuthContext)
     const [spots,setSpots]=useState(lodedSpots.slice(0, 6))
     if(loading){
@@ -27,9 +30,11 @@ spots.map(spotss=><HomeSpotShow spotss={spotss}></HomeSpotShow>)
             }
         </div>
     </div>
+    
 
+<SubCountry></SubCountry>
            <Extra2></Extra2>
-           <Coustomers></Coustomers>
+           
         </div>
     );
 };

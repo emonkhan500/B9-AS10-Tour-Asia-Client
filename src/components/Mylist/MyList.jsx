@@ -60,20 +60,7 @@ const handleDelete = _id =>{
     return (
         <div>
           <h2 className="mb-4 text-2xl font-semibold leading-tight">Your Spot</h2>
-          {/* <table className="w-4/5 p-6  text-xl text-left ">
-          <thead>
-				<tr className="dark:bg-gray-300">
-				
-					<th className="p-3">Spot</th>
-					<th className="p-3 ml-9">Country</th>
-					<th className="p-3">Location</th>
-					<th className="p-3">Cost</th>
-					
-					
-				</tr>
-			</thead>
-      
-      </table> */}
+        
       <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
