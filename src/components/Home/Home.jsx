@@ -31,7 +31,7 @@ spots.map(spotss=><HomeSpotShow spotss={spotss}></HomeSpotShow>)
         </div>
     </div>
     
-
+<Coustomers></Coustomers>
 <SubCountry></SubCountry>
            <Extra2></Extra2>
            
