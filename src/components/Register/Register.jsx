@@ -54,7 +54,7 @@ createUser(email,password)
  
 })
 .catch(error=>{
-console.log(error)
+setRegisterError(error)
 })
 
 
